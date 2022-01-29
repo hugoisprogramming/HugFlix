@@ -1,7 +1,7 @@
 
 # HugFlix
 
-Your selfhosted Netflix-like that downloads Series automatically thanks to Jackett, FlareSolverr, Sonarr and Deluge. Build using Docker.
+Your selfhosted Netflix-like that downloads Series automatically thanks to Jackett, FlareSolverr, Sonarr and Deluge. Built using Docker.
 
 ## Dependencies
 
@@ -56,7 +56,7 @@ FlareSolverr helps bypassing Cloudflare protection on indexer website
 6. Set the password you defined while configuring Deluge
 7. Click on 'Save'
 
---> Go to [Label configuration](#label-configuration) for Deluge to finish configuration
+--> Go to [Label configuration](#label-configuration) to finish Deluge configuration
 
 ## Deluge Configuration
 
