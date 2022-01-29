@@ -1,7 +1,7 @@
 
 # HugFlix
 
-Your selfhosted Netflix-like that downloads Series automatically thanks to [Jackett](https://github.com/Jackett/Jackett), [FlareSolverr](https://github.com/FlareSolverr/FlareSolverr), [Sonarr](https://github.com/Sonarr/Sonarr() and [Deluge](https://github.com/deluge-torrent/deluge). Built using [Docker](https://www.docker.com).
+Your selfhosted Netflix-like that downloads Series automatically thanks to [Jackett](https://github.com/Jackett/Jackett), [FlareSolverr](https://github.com/FlareSolverr/FlareSolverr), [Sonarr](https://github.com/Sonarr/Sonarr) and [Deluge](https://github.com/deluge-torrent/deluge). Built using [Docker](https://www.docker.com).
 
 ## Dependencies
 
