@@ -73,7 +73,7 @@ FlareSolverr helps bypassing Cloudflare protection on indexer website
 4. A window will open, in the 'WebUI Password' section, type the old password (deluge) and your new password then click 'Apply'
 5. In the same window (Preferences), go to 'Plugins' section and tick 'Label', then click 'Apply'
 
---> Go to back to [Downloader Configuration](#downloader-configuration)
+--> Go back to [Downloader Configuration](#downloader-configuration)
 
 ### Label configuration
 
