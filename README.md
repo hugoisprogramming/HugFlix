@@ -1,7 +1,7 @@
 
 # HugFlix
 
-Your selfhosted Netflix-like that downloads Series automatically thanks to Jackett, FlareSolverr, Sonarr and Deluge. Built using Docker.
+Your selfhosted Netflix-like that downloads Series automatically thanks to [Jackett](https://github.com/Jackett/Jackett), [FlareSolverr](https://github.com/FlareSolverr/FlareSolverr), [Sonarr](https://github.com/Sonarr/Sonarr() and [Deluge](https://github.com/deluge-torrent/deluge). Built using [Docker](https://www.docker.com).
 
 ## Dependencies
 
@@ -14,6 +14,11 @@ Your selfhosted Netflix-like that downloads Series automatically thanks to Jacke
 2. Go in the HugFlix folder with your terminal 
 3. Type 'make run' to launch the docker containers (if you don't have make on your computer, run 'docker compose up -d'). You can also stop the containers with 'make stop' (idem, run 'docker compose down')
 4. Configure your own HugFlix by following the configuration steps hereafter.
+
+Links to services:
+* Jackett : http://localhost:9117
+* Sonarr : http://localhost:8989
+* Deluge : http://localhost:8112
 
 ## Jackett Configuration
 
