@@ -1,9 +1,11 @@
 
 <p align="center">
   <img width="200" src="hugflix.png">
+
+  Your selfhosted Netflix-like that downloads Series automatically thanks to [Jackett](https://github.com/Jackett/Jackett), [FlareSolverr](https://github.com/FlareSolverr/FlareSolverr), [Sonarr](https://github.com/Sonarr/Sonarr), [Deluge](https://github.com/deluge-torrent/deluge) and [Jellyfin](https://github.com/jellyfin/jellyfin). Built using [Docker](https://www.docker.com).
 </p>
 
-Your selfhosted Netflix-like that downloads Series automatically thanks to [Jackett](https://github.com/Jackett/Jackett), [FlareSolverr](https://github.com/FlareSolverr/FlareSolverr), [Sonarr](https://github.com/Sonarr/Sonarr), [Deluge](https://github.com/deluge-torrent/deluge) and [Jellyfin](https://github.com/jellyfin/jellyfin). Built using [Docker](https://www.docker.com).
+
 
 ## Dependencies
 
