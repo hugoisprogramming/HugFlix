@@ -1,7 +1,7 @@
 
 # HugFlix
 
-Your selfhosted Netflix-like that downloads Series automatically thanks to [Jackett](https://github.com/Jackett/Jackett), [FlareSolverr](https://github.com/FlareSolverr/FlareSolverr), [Sonarr](https://github.com/Sonarr/Sonarr) and [Deluge](https://github.com/deluge-torrent/deluge). Built using [Docker](https://www.docker.com).
+Your selfhosted Netflix-like that downloads Series automatically thanks to [Jackett](https://github.com/Jackett/Jackett), [FlareSolverr](https://github.com/FlareSolverr/FlareSolverr), [Sonarr](https://github.com/Sonarr/Sonarr), [Deluge](https://github.com/deluge-torrent/deluge) and [Jellyfin](https://github.com/jellyfin/jellyfin). Built using [Docker](https://www.docker.com).
 
 ## Dependencies
 
@@ -19,6 +19,7 @@ Links to services:
 * Jackett : http://localhost:9117
 * Sonarr : http://localhost:8989
 * Deluge : http://localhost:8112
+* Jellyfin : http://localhost:8096/
 
 ## Jackett Configuration
 
@@ -45,7 +46,7 @@ FlareSolverr helps bypassing Cloudflare protection on indexer website
 3. Click on 'Torznab'
 4. Choose a name
 5. Go back to Jackett, click on 'Copy Torznab Feed' for your indexer and paste it into 'URL' on Sonarr. Change 'localhost' in the url by 'host.docker.internal'
-6. Copy the api key (without the ending point) from Jackett homepage (in Adding a Jackett indexer in Sonarr or Radarr section), and paste it into 'API KEY' on Sonarr
+6. Copy the api key from Jackett homepage (upper right corner), and paste it into 'API KEY' on Sonarr
 7. On Sonarr, in 'Categories', select 'TV'
 8. Click on 'Save'
 
@@ -57,9 +58,16 @@ FlareSolverr helps bypassing Cloudflare protection on indexer website
 2. Go to 'Settings' -> 'Download Clients' -> Click on the + icon
 3. Click on 'Deluge'
 4. Choose a name
-5. Change 'Host' to 'host.docker.internal'
+5. In 'Host', change 'localhost' to 'host.docker.internal'
 6. Set the password you defined while configuring Deluge
 7. Click on 'Save'
+
+### Media Management configuration
+
+1. Go to http://localhost:8989
+2. Go to 'Settings' -> 'Media Management'
+3. Tick the 'Rename Episodes' box
+4. Click on 'Save Changes' on the top of the page
 
 --> Go to [Label configuration](#label-configuration) to finish Deluge configuration
 
@@ -70,18 +78,19 @@ FlareSolverr helps bypassing Cloudflare protection on indexer website
 1. Go to http://localhost:8112
 2. Type 'deluge' and then click 'Login'
 3. Click on 'Yes' to change the default Password
-4. A window will open, in the 'WebUI Password' section, type the old password (deluge) and your new password then click 'Apply'
-5. In the same window (Preferences), go to 'Plugins' section and tick 'Label', then click 'Apply'
+4. If a 'Connection Manager' window appears, select the first line and click on 'Connect'
+5. A 'Preferences' window will open, in the 'Interface' tab and in the 'WebUI Password' section, type the old password (deluge) and your new password then click 'Apply'. Close the window.
+6. Open 'Preferences' again (top of the page). Go to 'Plugins' section and tick 'Label', then click 'Apply' and close the window.
 
 --> Go back to [Downloader Configuration](#downloader-configuration)
 
 ### Label configuration
 
 1. Go to http://localhost:8112
-2. Click on 'Preferences'
-3. In the 'Labels' section on the left, a new label 'tv-sonarr' has appeared
-4. Click right on it -> 'Label Options'
-5. In the 'Folders' tab, tick 'Apply folder settings' and 'Move completed to', then fill the field with '/Series' and click 'Ok'
+2. In the 'Labels' section on the left (under 'Filters'), a new label 'tv-sonarr' has appeared
+3. Click right on it -> 'Label Options'
+4. In the 'Queue' tab, tick 'Apply queue settings', 'Auto Managed' and 'Stop seed at ratio', and set the ratio to 0
+5. Click 'Ok'
 
 ### Download folder configuration
 
@@ -94,7 +103,33 @@ FlareSolverr helps bypassing Cloudflare protection on indexer website
 
 1. Go to http://localhost:8112
 2. Click on 'Preferences'
-3. In the 'Newtork' tab, untick 'Use Random Port' and set the field to '6881' then click 'Apply'
+3. In the 'Network' tab, untick 'Use Random Port' and set the field to '6881' then click 'Apply'
+
+## Jellyfin configuration
+
+### First launch
+
+1. Go to http://localhost:8096
+2. Choose your prefered language for the interface and create an user acccount
+3. On the next page, click on the + icon to add the media library
+4. In the media type, select 'TV Shows'
+5. Add a folder by cliking on the + icon next to 'Folders' and select '/Series', then click 'OK'
+6. Select your prefered language for the shows and your country
+7. You can tune the other parameters and finally click on 'OK'
+8. On the next page, you can choose the language for the metadata of your library
+9. On the following page, you can leave the parameters like that and go to the final page.
+10. Jellyfin is now configured and you can login with the user account you've configured before.
+
+### Add TheTVDB plugin
+1. Go to http://localhost:8096 and open the menu on the upper left corner 
+2. Go to 'Dashboard' -> 'Plugins' -> 'Catalog' and click on 'TheTVDB'
+3. Click on 'Install'
+4. Restart Jellyfin with 'make stop' and 'make run' in the terminal 
+
+### Use the TheTVDB plugin for your media library
+1. Go to http://localhost:8096 and open the menu on the upper left corner 
+2. Go to 'Dashboard' -> 'Libraries' -> Click on the 3 dots corresponding to your library and select 'Manage Library'
+3. Tick TheTVDB each time you see it in the different sections and click 'OK'
 
 ## Adding a show for the first time on Sonarr
 
@@ -105,7 +140,7 @@ FlareSolverr helps bypassing Cloudflare protection on indexer website
 5. You can select the quality you want in the 'Quality Profile' field
 6. You can tune the other parameters and then click on 'Add'
 
-Sonarr will automatically search for the episodes on your indexer, Deluge will download them and move them to Hugflix/data/Series.
+Sonarr will automatically search for the episodes on your indexer, Deluge will download them and move them to Hugflix/data/Series. The episodes will be available on Jellyfin to watch them.
 
 ## TO DO 
 

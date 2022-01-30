@@ -34,6 +34,7 @@ services:
     volumes:
       - ./sonarr:/config
       - ./data/Series:/Series
+      - ./data/Downloads:/Downloads
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -54,6 +55,24 @@ services:
       - 8112:8112
       - 6881:6881
       - 6881:6881/udp
+    restart: unless-stopped
+  
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Brussels
+    volumes:
+      - ./jellyfin:/config
+      - ./data/Series:/Series
+      - ./data/Movies:/Movies
+    ports:
+      - 8096:8096
+      - 8920:8920
+      - 7359:7359/udp
+      - 1900:1900/udp
     restart: unless-stopped
 
 
