@@ -3,7 +3,7 @@
   <img width="200" src="hugflix.png">
 </p>
 
-<div align="center" >Your selfhosted Netflix-like that downloads Series automatically thanks to [Jackett](https://github.com/Jackett/Jackett), [FlareSolverr](https://github.com/FlareSolverr/FlareSolverr), [Sonarr](https://github.com/Sonarr/Sonarr), [Deluge](https://github.com/deluge-torrent/deluge) and [Jellyfin](https://github.com/jellyfin/jellyfin). Built using [Docker](https://www.docker.com).</div>
+<p align="center">Your selfhosted Netflix-like that downloads Series automatically thanks to <a href="https://github.com/Jackett/Jackett">Jackett</a>, <a href="https://github.com/FlareSolverr/FlareSolverr">FlareSolverr</a>, <a href="https://github.com/Sonarr/Sonarr">Sonarr</a>,<a href="https://github.com/deluge-torrent/deluge">Deluge</a> and <a href="https://github.com/jellyfin/jellyfin">Jellyfin</a>. Built using <a href="https://www.docker.com">Docker</a>.</p>
 
 ## Dependencies
 
