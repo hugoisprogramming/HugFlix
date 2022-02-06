@@ -38,6 +38,21 @@ services:
     ports:
       - 8989:8989
     restart: unless-stopped
+  
+  radarr:
+    image: lscr.io/linuxserver/radarr
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Brussels
+    volumes:
+      - ./radarr:/config
+      - ./data/Movies:/Movies
+      - ./data/Downloads:/Downloads
+    ports:
+      - 7878:7878
+    restart: unless-stopped
 
   deluge:
     image: lscr.io/linuxserver/deluge
